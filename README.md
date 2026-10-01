@@ -1,42 +1,76 @@
-# AI Engineering Company Project — Student Template
+# TrackFlow — AI Engineering Company Project
 
 [![4Geeks Academy](https://img.shields.io/badge/4Geeks-Academy-blue)](https://4geeksacademy.com)
 [![AI Engineering](https://img.shields.io/badge/track-AI%20Engineering-green)](https://4geeksacademy.com/es/programas-de-carrera/ingenieria-ia)
 
-_Base template for transversal projects in the AI Engineering Career Program — 4Geeks Academy._
+_TrackFlow company brief and project guide for the AI Engineering Career Program at 4Geeks Academy._
 
-_Estas instrucciones tambien estan disponibles en [espanol](./README.es.md)._
-
----
-
-## Purpose
-
-This repository is the **starter template** for transversal projects. You will work on real company scenarios (Brasaland, TrackFlow, Nexova), building deliverables that map to course milestones (Web, Programming, Backend, Telemetry, RAG, Agents, Workflows, Real-time).
-
-- Create a template from this repository.
-- Replace the placeholder `CONTEXT.md` with your assigned company context.
-- Use `skills/` and the directory-level `README.md` files as working guidance.
+_The original repository-structure guide is also available in [Spanish](./README.es.md). This README contains the TrackFlow-specific company brief._
 
 ---
+
+## Company brief
+
+**TrackFlow** is a last-mile delivery and warehouse management company founded in **2009 in Los Angeles, United States**. It operates in **the United States and Spain**, with warehouses in **Los Angeles and Zaragoza**, approximately **130 employees**, and around **€9 million in annual revenue**.
+
+TrackFlow manages logistics for e-commerce brands: storing inventory, picking and packing orders, shipping through a network of eight carriers, tracking deliveries, and handling returns. Its customers include both the brands that rely on its logistics services and the consumers waiting for their orders.
+
+### The business problem
+
+The two warehouses use different systems and have no shared, real-time inventory view. Incoming orders are manually copied from emails, picking relies on printed lists, and stock discrepancies are often found late. Carrier assignment and tracking are handled manually across separate portals. Returns, customer questions, client reports, and executive reports also depend heavily on manual work.
+
+The technology landscape includes two warehouse management systems, a legacy ERP, undocumented integrations, and databases across two cloud providers. Without centralized monitoring or a shared data pipeline, teams struggle to get timely, consistent information.
+
+### Departments and opportunities
+
+These are needs described in the company briefing, rather than features already implemented in this repository.
+
+| Department | Current challenge | Systems and automations needed |
+| --- | --- | --- |
+| **Warehouse Operations** | Separate warehouse systems, manual order entry, and late inventory discrepancies | A unified inventory API, email-based order ingestion, an operations dashboard, and low-stock alerts |
+| **Last Mile and Carrier Management** | Manual carrier selection and tracking across eight carriers, with no structured performance history | Carrier recommendations, a unified tracking endpoint, a public tracking portal, and performance reporting |
+| **Reverse Logistics** | Returns represent 18–25% of volume and require manual, sometimes inconsistent review | Configurable approval rules, collection workflows, AI-assisted product inspection, and returns analysis |
+| **Customer Experience** | Fifteen agents handle repetitive questions without a unified ticketing system or knowledge base | A first-line support agent, a semantic knowledge base for RAG, unified tickets, sentiment analysis, and CX reporting |
+| **Commercial and Client Relations** | Client information sits in spreadsheets and emails; reports and renewal tracking are manual | CRM integration, automated client reports, client health indicators, and renewal alerts |
+| **Technology** | Fragmented systems, undocumented integrations, and no centralized telemetry | Shared data pipelines, logging and monitoring, automatic alerts, technical documentation, and operational automation |
+| **Executive Direction** | Manually assembled reports provide an incomplete, delayed view across countries | A real-time KPI dashboard, automated weekly reports, country comparisons, threshold alerts, and a natural-language assistant |
+
+The project takes the role of **TrackFlow Tech**, the internal unit tasked with building the systems, integrations, and intelligent automations that help these teams work together.
+
+For the full company scenario, see [CONTEXT.md](./CONTEXT.md).
+
+## Project focus
+
+The company selection and motivation are documented in [company-choice.md](./company-choice.md). The initial areas of interest are **Technology** and **Warehouse Operations**: connecting the Los Angeles and Zaragoza teams, improving the reliability of their systems, and giving them accurate inventory and order information.
+
+The proposed automation challenge is a **unified inventory system** that shows real-time stock in both warehouses and automatically warns employees when an item is running low.
+
+The proposed AI agent would:
+
+- Read information from order emails, warehouse inventory systems, product records, and low-stock limits.
+- Organize incoming order data and flag missing or conflicting information.
+- Compare requested products with available stock.
+- Produce clear employee alerts and trigger low-stock notifications when inventory falls below the required level.
+
+These are planned project ideas. Implementation will be added through the course milestones: Web, Programming, Backend, Telemetry, RAG, Agents, Workflows, and Real-time.
 
 ## How to start
 
-1. **Use this repository as a template** and create your own project repo.
-2. **Clone** your repository (or open it in Codespaces).
-3. **Replace** `CONTEXT.md` with the full context for your assigned company.
-4. **Read this folder guide** and open the `README.md` of the folder you are working in.
-5. **Start implementing** in the right folder — do not dump everything in the root.
-6. **Document** what you add: each new app, service, agent, or pipeline gets a subfolder + README.
+1. **Clone this repository** or open it in Codespaces.
+2. **Read** [CONTEXT.md](./CONTEXT.md) for the TrackFlow briefing and [company-choice.md](./company-choice.md) for the selected focus.
+3. **Read this folder guide** and the `README.md` of the folder you will work in.
+4. **Implement** each milestone in the appropriate folder instead of adding everything at the root.
+5. **Document** each new app, service, agent, or pipeline in its own subfolder with a README, including setup and verification instructions.
 
 ---
 
 ## How to think about this monorepo
 
-You are building **one company** across many milestones and projects. Each top-level folder has a **single responsibility** — like a real engineering team repo.
+This monorepo develops **TrackFlow** across many milestones and projects. Each top-level folder has a **single responsibility** — like a real engineering team repo.
 
 | Layer               | Folders                           | What lives here                                                  |
 | ------------------- | --------------------------------- | ---------------------------------------------------------------- |
-| **Company context** | `CONTEXT.md`                      | Domain facts, field names, constraints for your assigned company |
+| **Company context** | `CONTEXT.md`                      | Domain facts, field names, and constraints for TrackFlow |
 | **User-facing**     | `uis/`, `services/`               | Frontends and backends users (or operators) interact with        |
 | **Data**            | `data/`                           | Raw files, pipelines, processed datasets, evaluation sets        |
 | **AI**              | `agents/`, `skills/`, `mcps/`     | Agents, reusable agent capabilities, MCP tool servers            |
@@ -49,13 +83,13 @@ You are building **one company** across many milestones and projects. Each top-l
 
 ---
 
-## Current status of the template
+## Current project status
 
-> 💡 This repository currently provides a **base folder structure and documentation skeleton** only. It does not include runnable apps or global scripts yet.
->
-> - `CONTEXT.md` is a placeholder and must be replaced with your assigned company context.
-> - There is no root `AGENTS.md` yet.
-> - Shared package metadata exists in `packages/shared/package.json` (`@repo/shared-types`), but no workspace runner is configured at root.
+- TrackFlow has been selected, and the company briefing is present in [CONTEXT.md](./CONTEXT.md).
+- [company-choice.md](./company-choice.md) records the motivation, department interests, automation challenge, and proposed AI agent.
+- The repository contains the folder structure, documentation, development-container configuration, and starter examples. The TrackFlow applications and automations described above are not implemented yet.
+- Shared package metadata exists in `packages/shared/package.json` (`@repo/shared-types`), but no workspace runner or application test command is configured at the root.
+- There is no root `AGENTS.md` or `docker-compose.yml` yet. Component-specific setup and checks should be documented as implementation is added.
 
 ---
 
@@ -65,11 +99,13 @@ Read the linked `README.md` inside each folder before you start coding there.
 
 ### Root files
 
-| Path                         | Purpose                                                                   | What you do here                                                                                              |
-| ---------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| [`CONTEXT.md`](./CONTEXT.md) | Single source of truth for your company (Brasaland, TrackFlow, or Nexova) | **First step:** copy your assigned company briefing here so every app, agent, and prompt uses the same domain |
-| `docker-compose.yml`         | Local dev orchestration for the whole stack                               | Keep at repo root — wires `services/`, databases, and other containers from one place                         |
-| `README.md` / `README.es.md` | This guide                                                                | Orientation — you are here                                                                                    |
+| Path | Purpose |
+| --- | --- |
+| [`CONTEXT.md`](./CONTEXT.md) | Full TrackFlow company briefing and source for the project domain |
+| [`company-choice.md`](./company-choice.md) | Reasons for choosing TrackFlow, department interests, and proposed automation and agent |
+| `README.md` | TrackFlow company brief, project focus, current status, and repository guide |
+| [`README.es.md`](./README.es.md) | Original Spanish repository-structure guide |
+| `docker-compose.yml` (planned, not present) | If added, keep local development orchestration at the root to connect services and databases |
 
 ### `uis/` — user interfaces
 
@@ -79,9 +115,9 @@ Read the linked `README.md` inside each folder before you start coding there.
 
 - Public website (`website/`)
 - Internal admin / backoffice (`backoffice/`)
-- Customer portals, loyalty apps, Streamlit/Gradio tools, dashboards with a UI
+- Customer tracking portals, Streamlit/Gradio tools, dashboards with a UI
 
-**Examples:** corporate landing page, operations backoffice, loyalty portal, telemetry dashboard UI
+**Examples:** TrackFlow landing page, warehouse backoffice, parcel tracking portal, telemetry dashboard UI
 
 → See [`uis/README.md`](./uis/README.md)
 
@@ -91,12 +127,12 @@ Read the linked `README.md` inside each folder before you start coding there.
 
 **Put here:**
 
-- One main FastAPI app (e.g. `api/`) with routers/modules per domain (locations, menus, sales, telemetry, etc.)
+- One main FastAPI app (e.g. `api/`) with routers/modules per domain (inventory, orders, shipments, returns, telemetry, etc.)
 - Background workers only when they truly need to run separately from the API
 
 **Recommendation:** avoid splitting into many microservices early. Add endpoints to the same FastAPI app; extract a worker only when necessary.
 
-**Examples:** `/locations`, `/menus`, `/sales/reports`, webhook handlers, scheduled jobs
+**Example endpoint ideas:** `/inventory`, `/orders`, `/shipments`, `/returns`, webhook handlers, scheduled jobs
 
 → See [`services/README.md`](./services/README.md)
 
@@ -209,7 +245,7 @@ Read the linked `README.md` inside each folder before you start coding there.
 
 - Dockerfiles, Terraform, K8s manifests, Nginx configs, CI/CD pipelines
 
-**Keep at repo root:** `docker-compose.yml` — orchestrates local dev for `services/`, databases, and other containers from one place.
+**If added, keep at repo root:** `docker-compose.yml` to orchestrate local development for `services/`, databases, and other containers from one place.
 
 → See [`infra/README.md`](./infra/README.md)
 
@@ -268,9 +304,12 @@ Is it a CLI tool with its own package?     → internal/
 
 ```text
 ai-engineering-company-project-monorepo/
-├── README.md / README.es.md   # This guide
-├── CONTEXT.md                 # ← Replace with your company briefing
-├── docker-compose.yml         # ← Local dev orchestration (repo root)
+├── README.md                 # TrackFlow brief and project guide
+├── README.es.md              # Original Spanish repository guide
+├── CONTEXT.md                # Full TrackFlow company briefing
+├── CONTEXT.es.md             # Original Spanish context template
+├── company-choice.md         # TrackFlow selection and project focus
+├── .devcontainer/            # Development-container configuration
 ├── uis/                       # Frontends (website, backoffice, dashboards)
 ├── services/                  # Centralized FastAPI company API
 ├── data/
@@ -299,10 +338,10 @@ ai-engineering-company-project-monorepo/
 
 ---
 
-## Contributors
+## Template credits
 
-This template was built as part of the 4Geeks Academy AI Engineering Career Program by [@marcogonzalo](https://www.linkedin.com/in/marcogonzalo) and [@alesanchezr](https://x.com/alesanchezr) and many other contributors. Find out more about our [AI Engineering Course](https://4geeksacademy.com/en/career-programs/ai-engineering), and [other courses](https://4geeksacademy.com/en/program-comparison).
+The original repository template was built as part of the 4Geeks Academy AI Engineering Career Program by [@marcogonzalo](https://www.linkedin.com/in/marcogonzalo) and [@alesanchezr](https://x.com/alesanchezr) and many other contributors. Find out more about our [AI Engineering Course](https://4geeksacademy.com/en/career-programs/ai-engineering), and [other courses](https://4geeksacademy.com/en/program-comparison).
 
 You can find other templates and resources like this at the [4Geeks Academy GitHub page](https://github.com/4geeksacademy).
 
-_This template is maintained by 4Geeks Academy for the AI Engineering track. For exclusive use in the programme._
+_This project is based on the 4Geeks Academy template for the AI Engineering track. For exclusive use in the programme._
