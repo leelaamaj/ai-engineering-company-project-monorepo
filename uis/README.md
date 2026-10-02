@@ -9,6 +9,8 @@ The two main projects stored here are:
 
 Organize `uis/` by **different concerns** — each subfolder covers a distinct area of the company (for example, public web vs internal operations) and includes its own technical and functional documentation.
 
+TrackFlow's bilingual public site is now in [`website/`](./website/README.md). Run from the repository root: `npx http-server uis/website -p 3000 -a 0.0.0.0`.
+
 - **Main purpose**: to centralize in a single place all frontend applications that support the company's use cases.
 - **Recommendation**: document in this file (or in sub-READMEs) the applications you add, their objective, the technology used, and how to run them.
 

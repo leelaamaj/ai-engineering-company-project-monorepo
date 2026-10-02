@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Tell TrackFlow about your e-commerce logistics needs in the United States and Spain."
+    />
+    <meta name="theme-color" content="#102a43" />
+    <title>Request information | TrackFlow</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="i18n.js" defer></script>
+    <script src="validation.js" defer></script>
+  </head>
+  <body class="bg-white font-sans text-navy antialiased">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:p-4"
+      ><span data-i18n="t102">Skip to content</span></a
+    >
+    <header class="border-b border-slate-200 bg-white">
+      <div
+        class="mx-auto max-w-6xl px-6 sm:px-8 flex flex-wrap items-center justify-between gap-4 py-5"
+      >
+        <a
+          href="index.html"
+          aria-label="TrackFlow"
+          class="text-2xl font-extrabold tracking-tight text-navy"
+          >TrackFlow</a
+        >
+        <nav
+          aria-label="Main navigation"
+          data-i18n-aria="nav"
+          class="order-3 flex w-full flex-wrap justify-center gap-x-6 text-sm font-medium sm:order-none sm:w-auto"
+        >
+          <a
+            class="rounded py-2 hover:text-brand focus-visible:outline-2 focus-visible:outline-brand"
+            href="index.html#home"
+            ><span data-i18n="t98">Home</span></a
+          ><a
+            class="rounded py-2 hover:text-brand focus-visible:outline-2 focus-visible:outline-brand"
+            href="index.html#services"
+            ><span data-i18n="t99">Services</span></a
+          ><a
+            class="rounded py-2 hover:text-brand focus-visible:outline-2 focus-visible:outline-brand"
+            href="index.html#coverage"
+            ><span data-i18n="t100">Coverage</span></a
+          ><a
+            class="rounded py-2 hover:text-brand focus-visible:outline-2 focus-visible:outline-brand"
+            href="index.html#contact"
+            ><span data-i18n="t101">Contact</span></a
+          >
+        </nav>
+        <div
+          class="flex items-center gap-2 text-sm"
+          role="group"
+          aria-label="Language"
+          data-i18n-aria="language"
+        >
+          <button
+            type="button"
+            data-language="en"
+            aria-pressed="true"
+            lang="en"
+            class="rounded px-2 py-2 font-semibold text-brand aria-pressed:bg-blue-50 focus-visible:outline-2 focus-visible:outline-brand"
+          >
+            EN<span class="sr-only"> — English</span></button
+          ><span aria-hidden="true" class="text-slate-300">|</span
+          ><button
+            type="button"
+            data-language="es"
+            aria-pressed="false"
+            lang="es"
+            class="rounded px-2 py-2 font-semibold text-brand aria-pressed:bg-blue-50 focus-visible:outline-2 focus-visible:outline-brand"
+          >
+            ES<span class="sr-only"> — Español</span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main id="main" class="mx-auto max-w-6xl px-6 sm:px-8 py-12 sm:py-16">
+      <div class="mx-auto max-w-4xl">
+        <div class="mb-10 text-center">
+          <h1
+            data-i18n="t44"
+            class="text-4xl font-extrabold tracking-tight sm:text-5xl"
+          >
+            Request information
+          </h1>
+          <p data-i18n="t45" class="mt-5 text-lg text-slate-600">
+            Tell us about your business and logistics needs.
+          </p>
+          <p data-i18n="t46" class="mt-4 text-sm text-slate-600">
+            Demo form: use sample details. Information stays in your browser and
+            is not sent.
+          </p>
+        </div>
+        <form id="inquiry-form" novalidate>
+          <p data-i18n="t47" class="mb-6 text-sm text-slate-600">
+            Fields marked * are required.
+          </p>
+          <p
+            id="error-summary"
+            role="alert"
+            class="mb-6 rounded-md border border-red-200 bg-red-50 p-4 font-medium text-red-800"
+            hidden
+          ></p>
+          <fieldset class="border-t border-slate-200 pt-6">
+            <legend class="pr-4 text-xl font-bold">
+              <span data-i18n="t48">Company and contact details</span>
+            </legend>
+            <div class="mt-5 grid gap-6 md:grid-cols-2">
+              <div data-field="company_name">
+                <label class="text-sm font-semibold" for="company_name"
+                  ><span data-i18n="t49">Company name</span>
+                  <span aria-hidden="true">*</span></label
+                ><input
+                  type="text"
+                  id="company_name"
+                  name="company_name"
+                  aria-describedby="company_name-error"
+                  required
+                  autocomplete="organization"
+                  class="mt-2 block w-full rounded-md border border-slate-300 bg-white px-3 py-3 text-base text-navy placeholder:text-slate-500 focus:border-brand focus:outline-2 focus:outline-brand aria-invalid:border-red-700"
+                />
+                <p
+                  id="company_name-error"
+                  class="mt-2 text-sm font-medium text-red-700"
+                  aria-live="polite"
+                  hidden
+                ></p>
+              </div>
+              <div data-field="contact_person">
+                <label class="text-sm font-semibold" for="contact_person"
+                  ><span data-i18n="t50">Contact person</span>
+                  <span aria-hidden="true">*</span></label
+                ><input
+                  type="text"
+                  id="contact_person"
+                  name="contact_person"
+                  aria-describedby="contact_person-error"
+                  required
+                  autocomplete="name"
+                  class="mt-2 block w-full rounded-md border border-slate-300 bg-white px-3 py-3 text-base text-navy placeholder:text-slate-500 focus:border-brand focus:outline-2 focus:outline-brand aria-invalid:border-red-700"
+                />
+                <p
+                  id="contact_person-error"
+                  class="mt-2 text-sm font-medium text-red-700"
+                  aria-live="polite"
+                  hidden
+                ></p>
+              </div>
+              <div data-field="email">
+                <label class="text-sm font-semibold" for="email"
+                  ><span data-i18n="t51">Corporate email</span>
+                  <span aria-hidden="true">*</span></label
+                ><input
+                  type="email"
+                  id="email"
+                  name="email"
+                  aria-describedby="email-error"
+                  required
+                  autocomplete="email"
+                  placeholder="name@company.com"
+                  class="mt-2 block w-full rounded-md border border-slate-300 bg-white px-3 py-3 text-base text-navy placeholder:text-slate-500 focus:border-brand focus:outline-2 focus:outline-brand aria-invalid:border-red-700"
+                />
+                <p
+                  id="email-error"
+                  class="mt-2 text-sm font-medium text-red-700"
+                  aria-live="polite"
+                  hidden
+                ></p>
+              </div>
+              <div data-field="phone">
+                <label class="text-sm font-semibold" for="phone"
+                  ><span data-i18n="t52">Phone</span>
+                  <span aria-hidden="true">*</span></label
+                ><input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  aria-describedby="phone-error"
+                  required
+                  autocomplete="tel"
+                  placeholder="+1 213 555 0147"
+                  class="mt-2 block w-full rounded-md border border-slate-300 bg-white px-3 py-3 text-base text-navy placeholder:text-slate-500 focus:border-brand focus:outline-2 focus:outline-brand aria-invalid:border-red-700"
+                />
+                <p
+                  id="phone-error"
+                  class="mt-2 text-sm font-medium text-red-700"
+                  aria-live="polite"
+                  hidden
+                ></p>
+              </div>
+              <div data-field="website">
+                <label class="text-sm font-semibold" for="website"
+                  ><span data-i18n="t53">Company website</span>
+                  <span data-i18n="t54">(optional)</span></label
+                ><input
+                  type="url"
+                  id="website"
+                  name="website"
+                  aria-describedby="website-error"
+                  autocomplete="url"
+                  placeholder="https://"
+                  class="mt-2 block w-full rounded-md border border-slate-300 bg-white px-3 py-3 text-base text-navy placeholder:text-slate-500 focus:border-brand focus:outline-2 focus:outline-brand aria-invalid:border-red-700"
+                />
+                <p
+                  id="website-error"
+                  class="mt-2 text-sm font-medium text-red-700"
+                  aria-live="polite"
+                  hidden
+                ></p>
+              </div>
+              <div data-field="country">
+                <label class="text-sm font-semibold" for="country"
+                  ><span data-i18n="t55">Main operating country</span>
+                  <span aria-hidden="true">*</span></label
+                ><select
+                  id="country"
+                  name="country"
+                  aria-describedby="country-error"
+                  required
+                  class="mt-2 block w-full rounded-md border border-slate-300 bg-white px-3 py-3 text-base text-navy placeholder:text-slate-500 focus:border-brand focus:outline-2 focus:outline-brand aria-invalid:border-red-700"
+                >
+                  <option value="">
+                    <span data-i18n="t56">Select an option</span>
+                  </option>
+                  <option value="United States">
+                    <span data-i18n="t57">United States</span>
+                  </option>
+                  <option value="Spain">
+                    <span data-i18n="t58">Spain</span>
+                  </option>
+                  <option value="Both">
+                    <span data-i18n="t59">Both</span>
+                  </option>
+                  <option value="Other">
+                    <span data-i18n="t60">Other</span>
+                  </option>
+                </select>
+                <p
+                  id="country-error"
+                  class="mt-2 text-sm font-medium text-red-700"
+                  aria-live="polite"
+                  hidden
+                ></p>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="mt-10 border-t border-slate-200 pt-6">
+            <legend class="pr-4 text-xl font-bold">
+              <span data-i18n="t61">Logistics needs</span>
+            </legend>
+            <div class="mt-5 grid gap-6 md:grid-cols-2">
+              <div data-field="product_type">
+                <label class="text-sm font-semibold" for="product_type"
+                  ><span data-i18n="t62">Product type</span>
+                  <span aria-hidden="true">*</span></label
+                ><select
+                  id="product_type"
+                  name="product_type"
+                  aria-describedby="product_type-error"
+                  required
+                  class="mt-2 block w-full rounded-md border border-slate-300 bg-white px-3 py-3 text-base text-navy placeholder:text-slate-500 focus:border-brand focus:outline-2 focus:outline-brand aria-invalid:border-red-700"
+                >
+                  <option value="">
+                    <span data-i18n="t63">Select an option</span>
+                  </option>
+                  <option value="Fashion">
+                    <span data-i18n="t64">Fashion</span>
+                  </option>
+                  <option value="Electronics">
+                    <span data-i18n="t65">Electronics</span>
+                  </option>
+                  <option value="Cosmetics">
+                    <span data-i18n="t66">Cosmetics</span>
+                  </option>
+                  <option value="Food">
+                    <span data-i18n="t67">Food</span>
+                  </option>
+                  <option value="Other">
+                    <span data-i18n="t68">Other</span>
+                  </option>
+                </select>
+                <p
+                  id="product_type-error"
+                  class="mt-2 text-sm font-medium text-red-700"
+                  aria-live="polite"
+                  hidden
+                ></p>
+              </div>
+              <div data-field="monthly_volume">
+                <label class="text-sm font-semibold" for="monthly_volume"
+                  ><span data-i18n="t69"
+                    >Estimated monthly shipping volume</span
+                  >
+                  <span aria-hidden="true">*</span></label
+                ><select
+                  id="monthly_volume"
+                  name="monthly_volume"
+                  aria-describedby="monthly_volume-error"
+                  required
+                  class="mt-2 block w-full rounded-md border border-slate-300 bg-white px-3 py-3 text-base text-navy placeholder:text-slate-500 focus:border-brand focus:outline-2 focus:outline-brand aria-invalid:border-red-700"
+                >
+                  <option value="">
+                    <span data-i18n="t70">Select an option</span>
+                  </option>
+                  <option value="0-100">
+                    <span data-i18n="t71">0-100</span>
+                  </option>
+                  <option value="101-500">
+                    <span data-i18n="t72">101-500</span>
+                  </option>
+                  <option value="501-2000">
+                    <span data-i18n="t73">501-2000</span>
+                  </option>
+                  <option value="2000+">
+                    <span data-i18n="t74">2000+</span>
+                  </option>
+                  <option value="Not sure">
+                    <span data-i18n="t75">Not sure</span>
+                  </option>
+                </select>
+                <p
+                  id="monthly_volume-error"
+                  class="mt-2 text-sm font-medium text-red-700"
+                  aria-live="polite"
+                  hidden
+                ></p>
+              </div>
+            </div>
+            <div class="mt-6 grid gap-8 md:grid-cols-2">
+              <fieldset data-field="services" aria-describedby="services-error">
+                <legend class="text-sm font-semibold">
+                  <span data-i18n="t76">Services of interest</span>
+                  <span aria-hidden="true">*</span>
+                </legend>
+                <div class="mt-4 space-y-3">
+                  <label
+                    class="flex cursor-pointer items-start gap-3 text-base"
+                    for="services0"
+                    ><input
+                      id="services0"
+                      type="checkbox"
+                      name="services"
+                      value="Warehousing"
+                      aria-describedby="services-error"
+                      class="mt-1 h-4 w-4 shrink-0 accent-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+                    /><span data-i18n="t77">Warehousing</span></label
+                  ><label
+                    class="flex cursor-pointer items-start gap-3 text-base"
+                    for="services1"
+                    ><input
+                      id="services1"
+                      type="checkbox"
+                      name="services"
+                      value="Last mile"
+                      aria-describedby="services-error"
+                      class="mt-1 h-4 w-4 shrink-0 accent-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+                    /><span data-i18n="t78">Last mile</span></label
+                  ><label
+                    class="flex cursor-pointer items-start gap-3 text-base"
+                    for="services2"
+                    ><input
+                      id="services2"
+                      type="checkbox"
+                      name="services"
+                      value="Reverse logistics"
+                      aria-describedby="services-error"
+                      class="mt-1 h-4 w-4 shrink-0 accent-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+                    /><span data-i18n="t79">Reverse logistics</span></label
+                  >
+                </div>
+                <p
+                  id="services-error"
+                  class="mt-2 text-sm font-medium text-red-700"
+                  aria-live="polite"
+                  hidden
+                ></p>
+              </fieldset>
+              <fieldset
+                data-field="current_3pl"
+                aria-describedby="current_3pl-error"
+              >
+                <legend class="text-sm font-semibold">
+                  <span data-i18n="t80"
+                    >Do you currently work with another 3PL?</span
+                  >
+                  <span aria-hidden="true">*</span>
+                </legend>
+                <div class="mt-4 space-y-3">
+                  <label
+                    class="flex cursor-pointer items-start gap-3 text-base"
+                    for="current_3pl0"
+                    ><input
+                      id="current_3pl0"
+                      type="radio"
+                      name="current_3pl"
+                      value="Yes"
+                      aria-describedby="current_3pl-error"
+                      required
+                      class="mt-1 h-4 w-4 shrink-0 accent-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+                    /><span data-i18n="t81">Yes</span></label
+                  ><label
+                    class="flex cursor-pointer items-start gap-3 text-base"
+                    for="current_3pl1"
+                    ><input
+                      id="current_3pl1"
+                      type="radio"
+                      name="current_3pl"
+                      value="No"
+                      aria-describedby="current_3pl-error"
+                      required
+                      class="mt-1 h-4 w-4 shrink-0 accent-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+                    /><span data-i18n="t82">No</span></label
+                  ><label
+                    class="flex cursor-pointer items-start gap-3 text-base"
+                    for="current_3pl2"
+                    ><input
+                      id="current_3pl2"
+                      type="radio"
+                      name="current_3pl"
+                      value="Evaluating options"
+                      aria-describedby="current_3pl-error"
+                      required
+                      class="mt-1 h-4 w-4 shrink-0 accent-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+                    /><span data-i18n="t83">Evaluating options</span></label
+                  >
+                </div>
+                <p
+                  id="current_3pl-error"
+                  class="mt-2 text-sm font-medium text-red-700"
+                  aria-live="polite"
+                  hidden
+                ></p>
+              </fieldset>
+            </div>
+            <div class="mt-6" data-field="comments">
+              <label for="comments" class="text-sm font-semibold"
+                ><span data-i18n="t84">Comments or specific needs</span>
+                <span data-i18n="t85">(optional)</span></label
+              ><textarea
+                id="comments"
+                name="comments"
+                rows="4"
+                aria-describedby="comments-counter comments-error"
+                class="mt-2 block w-full rounded-md border border-slate-300 bg-white px-3 py-3 text-base text-navy placeholder:text-slate-500 focus:border-brand focus:outline-2 focus:outline-brand aria-invalid:border-red-700"
+              ></textarea>
+              <p
+                id="comments-counter"
+                class="mt-2 text-sm text-slate-600"
+                aria-live="polite"
+              >
+                0 / 500
+              </p>
+              <p
+                id="comments-error"
+                class="mt-2 text-sm font-medium text-red-700"
+                aria-live="polite"
+                hidden
+              ></p>
+            </div>
+          </fieldset>
+          <fieldset class="mt-10 border-t border-slate-200 pt-6">
+            <legend class="pr-4 text-xl font-bold">
+              <span data-i18n="t86">Privacy and consent</span>
+            </legend>
+            <details
+              id="privacy-policy"
+              class="mt-4 rounded-md bg-slate-50 p-4 text-sm"
+            >
+              <summary
+                class="cursor-pointer font-semibold text-brand focus-visible:outline-2 focus-visible:outline-brand"
+              >
+                <span data-i18n="t87"
+                  >Read the privacy policy for this demo</span
+                >
+              </summary>
+              <p data-i18n="t88" class="mt-3 leading-relaxed text-slate-600">
+                This educational prototype validates entries locally. It does
+                not send, save, or share your company or contact details. Only
+                your language preference is stored on this device. Clear the
+                form or leave the page to discard the entries. A production
+                privacy policy and secure submission service are required before
+                collecting real inquiries.
+              </p>
+            </details>
+            <div class="mt-5" data-field="privacy">
+              <label
+                class="flex cursor-pointer items-start gap-3 text-sm"
+                for="privacy"
+                ><input
+                  id="privacy"
+                  name="privacy"
+                  type="checkbox"
+                  required
+                  aria-describedby="privacy-error"
+                  class="mt-1 h-4 w-4 shrink-0 accent-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+                /><span data-i18n="t89">I accept the privacy policy</span>
+                <span aria-hidden="true">*</span></label
+              >
+              <p
+                id="privacy-error"
+                class="mt-2 text-sm font-medium text-red-700"
+                aria-live="polite"
+                hidden
+              ></p>
+            </div>
+          </fieldset>
+          <div
+            id="low-volume-warning"
+            class="mt-8 rounded-md border border-amber-300 bg-amber-50 p-5 text-amber-950"
+            hidden
+            tabindex="-1"
+          >
+            <p id="low-volume-warning-text" data-i18n="t90" aria-live="polite">
+              For volumes under 100 monthly shipments, our services might not be
+              the most efficient solution. Are you sure you want to continue?
+            </p>
+            <label
+              class="mt-4 flex cursor-pointer items-start gap-3 font-semibold"
+              for="confirm-low-volume"
+              ><input
+                id="confirm-low-volume"
+                type="checkbox"
+                aria-describedby="low-volume-warning-text"
+                class="mt-1 h-4 w-4 shrink-0 accent-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+              /><span data-i18n="t91"
+                >Yes, continue with my request</span
+              ></label
+            >
+          </div>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <button
+              type="submit"
+              class="inline-flex items-center justify-center rounded-md bg-brand px-6 py-3 text-base font-semibold text-white hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
+            >
+              <span data-i18n="t92">Request information</span></button
+            ><button
+              type="reset"
+              class="rounded-md border border-slate-300 px-6 py-3 text-base font-semibold hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
+            >
+              <span data-i18n="t93">Clear form</span>
+            </button>
+          </div>
+          <section
+            id="success-message"
+            class="mt-8 rounded-md border border-green-300 bg-green-50 p-6 text-green-900"
+            role="status"
+            tabindex="-1"
+            hidden
+          >
+            <h2 data-i18n="t94" class="text-xl font-bold">
+              Thank you for your interest in TrackFlow!
+            </h2>
+            <p data-i18n="t95" class="mt-3 leading-relaxed">
+              We have received your request. Our commercial team will review
+              your information and contact you within the next 24-48 hours to
+              schedule a call and learn about your logistics needs in detail.
+            </p>
+            <p class="mt-3">
+              <span data-i18n="t96"
+                >If you have any urgent inquiry, write to us directly at</span
+              >
+              <a href="mailto:comercial@trackflow.com" class="underline"
+                >comercial@trackflow.com</a
+              >
+            </p>
+            <p data-i18n="t97" class="mt-4 text-sm font-semibold">
+              Simulation complete. No request was actually sent.
+            </p>
+          </section>
+        </form>
+      </div>
+    </main>
+    <footer class="bg-navy py-7 text-white">
+      <div
+        class="mx-auto max-w-6xl px-6 sm:px-8 flex flex-wrap items-center justify-between gap-5 text-sm"
+      >
+        <a href="index.html" class="text-xl font-bold">TrackFlow</a
+        ><span data-i18n="t103">© 2025 TrackFlow. All rights reserved.</span
+        ><a
+          class="underline underline-offset-4"
+          href="https://linkedin.com/company/trackflow"
+          >LinkedIn</a
+        >
+      </div>
+    </footer>
+  </body>
+</html>
