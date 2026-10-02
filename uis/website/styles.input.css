@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@source "./*.html";
+@source "./*.js";
+@theme {
+  --color-navy: #102a43;
+  --color-brand: #155eef;
+  --color-brand-dark: #1047b9;
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+}

@@ -87,7 +87,8 @@ This monorepo develops **TrackFlow** across many milestones and projects. Each t
 
 - TrackFlow has been selected, and the company briefing is present in [CONTEXT.md](./CONTEXT.md).
 - [company-choice.md](./company-choice.md) records the motivation, department interests, automation challenge, and proposed AI agent.
-- The repository contains the folder structure, documentation, development-container configuration, and starter examples. The TrackFlow applications and automations described above are not implemented yet.
+- The public website is implemented in `uis/website/`: English and Spanish landing pages, a validated business inquiry form, and local Lighthouse evidence. The broader applications and automations described above remain planned.
+- Run the website from this repository root with `npx http-server uis/website -p 3000 -a 0.0.0.0`. Open port 3000. See [website instructions](./uis/website/README.md) for build, test, and Codespaces review steps.
 - Shared package metadata exists in `packages/shared/package.json` (`@repo/shared-types`), but no workspace runner or application test command is configured at the root.
 - There is no root `AGENTS.md` or `docker-compose.yml` yet. Component-specific setup and checks should be documented as implementation is added.
 
