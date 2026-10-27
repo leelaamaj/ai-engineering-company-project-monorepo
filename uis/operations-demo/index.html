@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Try TrackFlow's typed inventory, search, shipping, and validation utilities using sample data."
+    />
+    <title>TrackFlow | Operations Lab</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-white focus:p-4"
+      >Skip to content</a
+    >
+    <header class="border-b border-slate-200 bg-white">
+      <div
+        class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-5 py-5 sm:px-8"
+      >
+        <a
+          href="#main"
+          class="text-2xl font-extrabold tracking-tight"
+          aria-label="TrackFlow Operations Lab"
+          >TrackFlow<span class="text-brand">.</span></a
+        >
+        <span class="text-sm text-slate-600">Los Angeles &amp; Zaragoza</span>
+      </div>
+    </header>
+    <div
+      class="mx-auto grid max-w-7xl gap-6 px-5 py-8 sm:px-8 lg:grid-cols-[180px_minmax(0,1fr)] lg:gap-10"
+    >
+      <aside>
+        <nav
+          aria-label="Operations"
+          class="flex flex-wrap gap-1 lg:sticky lg:top-8 lg:flex-col"
+        >
+          <a class="nav-link" href="#inventory">01 &nbsp; Inventory</a>
+          <a class="nav-link" href="#search">02 &nbsp; Search</a>
+          <a class="nav-link" href="#shipping">03 &nbsp; Shipping</a>
+          <a class="nav-link" href="#reports">04 &nbsp; Reports</a>
+        </nav>
+      </aside>
+      <main id="main" class="min-w-0 space-y-6">
+        <div class="pb-2">
+          <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+            Operations Lab
+          </h1>
+          <p class="mt-3 max-w-2xl leading-7 text-slate-600">
+            From warehouse stock to the right carrier. Explore the TypeScript
+            logic behind TrackFlow’s day-to-day operations.
+          </p>
+          <p
+            class="mt-5 rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 text-sm text-blue-900"
+          >
+            <strong>Sample data only.</strong> Changes stay in this page. No
+            orders are placed or saved.
+          </p>
+        </div>
+
+        <section id="inventory" class="panel" aria-labelledby="inventory-title">
+          <div class="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <h2 id="inventory-title">Inventory</h2>
+              <p class="intro">
+                Combine filters, flag low stock, and sort without changing the
+                source data.
+              </p>
+            </div>
+            <p
+              id="inventory-count"
+              class="text-sm font-semibold text-brand"
+              role="status"
+            ></p>
+          </div>
+          <form
+            id="inventory-form"
+            class="mt-6 grid items-end gap-4 sm:grid-cols-2 xl:grid-cols-3"
+          >
+            <label
+              >Warehouse<select id="warehouse">
+                <option value="">All warehouses</option>
+                <option>Los Angeles</option>
+                <option>Zaragoza</option>
+              </select></label
+            >
+            <label
+              >Category<select id="category">
+                <option value="">All categories</option>
+                <option>Fashion</option>
+                <option>Electronics</option>
+                <option>Cosmetics</option>
+                <option>Home</option>
+                <option>Other</option>
+              </select></label
+            >
+            <label
+              >Status<select id="product-status">
+                <option value="">All statuses</option>
+                <option>Active</option>
+                <option>Low stock</option>
+                <option>Out of stock</option>
+                <option>Discontinued</option>
+              </select></label
+            >
+            <label
+              >Minimum stock<input
+                id="min-stock"
+                type="number"
+                min="0"
+                step="any"
+                placeholder="No minimum"
+            /></label>
+            <label
+              >Maximum stock<input
+                id="max-stock"
+                type="number"
+                min="0"
+                step="any"
+                placeholder="No maximum"
+            /></label>
+            <label
+              >Sort products<select id="stock-sort">
+                <option value="asc">Stock: low to high</option>
+                <option value="desc">Stock: high to low</option>
+                <option value="warehouse">Warehouse, then stock</option>
+              </select></label
+            >
+            <label class="flex-row items-center py-3"
+              ><input id="low-stock" type="checkbox" /> Low stock only</label
+            >
+            <button type="submit">Apply filters</button>
+            <button type="reset" class="subtle-button">Reset inventory</button>
+          </form>
+          <div
+            class="mt-6 overflow-x-auto rounded-lg border border-slate-200"
+            tabindex="0"
+            role="region"
+            aria-label="Product table"
+          >
+            <table class="w-full">
+              <caption class="sr-only">
+                Filtered sample inventory
+              </caption>
+              <thead class="bg-slate-50">
+                <tr>
+                  <th scope="col">Product / SKU</th>
+                  <th scope="col">Warehouse</th>
+                  <th scope="col">Stock / minimum</th>
+                  <th scope="col">Weight</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody id="inventory-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="search" class="panel" aria-labelledby="search-title">
+          <h2 id="search-title">Search the records</h2>
+          <p class="intro">
+            Linear search checks records one by one. Binary search repeatedly
+            halves a sorted list.
+          </p>
+          <div class="mt-6 grid gap-6 xl:grid-cols-2">
+            <form id="linear-form" class="space-y-4">
+              <h3>Linear search</h3>
+              <label
+                >Record type<select id="search-kind">
+                  <option value="product">
+                    Product SKU (case-insensitive)
+                  </option>
+                  <option value="shipment">Shipment ID (exact match)</option>
+                </select></label
+              >
+              <label
+                >SKU or shipment ID<input
+                  id="search-term"
+                  value="laptop-dell-15"
+                  required
+              /></label>
+              <button type="submit">Find record</button>
+              <pre id="linear-result" role="status">
+Enter a SKU or shipment ID to begin.</pre
+              >
+            </form>
+            <form id="binary-form" class="space-y-4">
+              <h3>Binary search</h3>
+              <p class="text-sm leading-6 text-slate-600">
+                This list is sorted by weight ascending before searching.
+                Indexes start at 0.
+              </p>
+              <ol id="weight-list" class="space-y-2 text-sm"></ol>
+              <label
+                >Target weight (kg)<input
+                  id="target-weight"
+                  type="number"
+                  step="any"
+                  value="2.3"
+                  required
+              /></label>
+              <button type="submit">Find weight</button>
+              <pre id="binary-result" role="status">
+Choose a weight to find its index.</pre
+              >
+            </form>
+          </div>
+        </section>
+
+        <section id="shipping" class="panel" aria-labelledby="shipping-title">
+          <h2 id="shipping-title">Shipping &amp; carriers</h2>
+          <p class="intro">
+            Adjust a sample shipment to compare costs and suitability. The
+            lowest-cost carrier with a score of at least 50 wins, exactly as
+            defined in the course brief.
+          </p>
+          <form
+            id="shipping-form"
+            class="mt-6 grid items-end gap-4 sm:grid-cols-2 xl:grid-cols-3"
+          >
+            <label>Product<select id="shipping-product"></select></label>
+            <label
+              >Quantity<input
+                id="shipping-quantity"
+                type="number"
+                min="0"
+                step="any"
+                value="1"
+                required
+            /></label>
+            <label
+              >Destination country<select id="destination-country">
+                <option>Spain</option>
+                <option>United States</option>
+              </select></label
+            >
+            <label
+              >Distance (km)<input
+                id="shipping-distance"
+                type="number"
+                min="0"
+                step="any"
+                value="320"
+                required
+            /></label>
+            <label
+              >Priority<select id="shipping-priority">
+                <option>Standard</option>
+                <option selected>Express</option>
+                <option>Same-day</option>
+              </select></label
+            >
+            <label
+              >Carrier display order<select id="carrier-sort">
+                <option value="desc">Reliability: high to low</option>
+                <option value="asc">Reliability: low to high</option>
+              </select></label
+            >
+            <label class="flex-row items-center py-3"
+              ><input id="fragile" type="checkbox" checked /> Fragile
+              shipment</label
+            >
+            <button type="submit">Compare carriers</button>
+          </form>
+          <div
+            id="shipping-result"
+            class="mt-6 rounded-lg border border-blue-200 bg-blue-50 p-4 text-sm leading-6"
+            role="status"
+          ></div>
+          <div
+            class="mt-4 overflow-x-auto rounded-lg border border-slate-200"
+            tabindex="0"
+            role="region"
+            aria-label="Carrier comparison"
+          >
+            <table class="w-full">
+              <caption class="sr-only">
+                Scored sample carriers
+              </caption>
+              <thead class="bg-slate-50">
+                <tr>
+                  <th scope="col">Carrier</th>
+                  <th scope="col">On-time rate</th>
+                  <th scope="col">Score / 100</th>
+                  <th scope="col">Cost (USD)</th>
+                  <th scope="col">Eligibility</th>
+                </tr>
+              </thead>
+              <tbody id="carrier-body"></tbody>
+            </table>
+          </div>
+          <p class="mt-3 text-xs leading-5 text-slate-600">
+            This educational scoring rule can qualify carriers that miss an
+            individual capability. The full rule is reproduced for grading; it
+            is not a live booking recommendation.
+          </p>
+        </section>
+
+        <section id="reports" class="panel" aria-labelledby="reports-title">
+          <h2 id="reports-title">Reports &amp; validation</h2>
+          <p class="intro">
+            Inventory reports use your current filters. Shipment reports use
+            four illustrative records derived from the brief’s sample shipment.
+          </p>
+          <div class="mt-5 flex flex-wrap items-center gap-4">
+            <button id="generate-reports" type="button">
+              Generate reports
+            </button>
+            <label class="flex-row items-center"
+              ><input id="empty-reports" type="checkbox" /> Test empty
+              collections</label
+            >
+          </div>
+          <p
+            id="report-scope"
+            class="mt-4 text-sm text-slate-600"
+            role="status"
+          ></p>
+          <dl class="my-6 grid gap-6 sm:grid-cols-3">
+            <div class="metric">
+              <dt class="text-sm text-slate-600">Inventory value</dt>
+              <dd id="inventory-value" class="mt-1 text-2xl font-bold"></dd>
+            </div>
+            <div class="metric">
+              <dt class="text-sm text-slate-600">Average shipment distance</dt>
+              <dd id="average-distance" class="mt-1 text-2xl font-bold"></dd>
+            </div>
+            <div class="metric">
+              <dt class="text-sm text-slate-600">Stock min / max / average</dt>
+              <dd id="stock-summary" class="mt-1 text-xl font-bold"></dd>
+            </div>
+          </dl>
+          <pre id="report-details" aria-label="Report details"></pre>
+          <form
+            id="validation-form"
+            class="mt-8 space-y-4 border-t border-slate-200 pt-6"
+          >
+            <h3>Validate a data object</h3>
+            <p id="json-help" class="text-sm leading-6 text-slate-600">
+              Edit the JSON to try missing fields, invalid values, or boundary
+              cases. Shipment date strings are converted to Date objects before
+              validation.
+            </p>
+            <label
+              >Object type<select id="validation-kind">
+                <option value="product">Product</option>
+                <option value="shipment">Shipment</option>
+                <option value="carrier">Carrier</option>
+              </select></label
+            >
+            <label
+              >Object JSON<textarea
+                id="validation-json"
+                rows="12"
+                spellcheck="false"
+                aria-describedby="json-help"
+                class="font-mono text-sm"
+              ></textarea>
+            </label>
+            <div class="flex flex-wrap gap-3">
+              <button type="submit">Validate object</button
+              ><button id="reset-json" type="button" class="subtle-button">
+                Reload sample
+              </button>
+            </div>
+            <pre id="validation-result" role="status">
+Edit a sample and validate it.</pre
+            >
+          </form>
+        </section>
+        <footer class="pb-6 text-sm text-slate-600">
+          TrackFlow Tech · Milestone 2 · Typed, reusable, testable.
+        </footer>
+      </main>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

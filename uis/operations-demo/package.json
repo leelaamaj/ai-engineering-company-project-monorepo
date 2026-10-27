@@ -1,0 +1,9 @@
+{
+  "name": "@trackflow/operations-demo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@repo/shared-types": "*"
+  }
+}

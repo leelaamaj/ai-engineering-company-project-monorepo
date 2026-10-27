@@ -1,0 +1,61 @@
+@import "tailwindcss";
+@theme {
+  --color-navy: #102a43;
+  --color-brand: #155eef;
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+}
+@layer base {
+  body {
+    @apply bg-slate-50 text-navy antialiased;
+  }
+  h2 {
+    @apply text-2xl font-bold tracking-tight;
+  }
+  h3 {
+    @apply text-lg font-bold;
+  }
+  label {
+    @apply flex flex-col gap-2 text-sm font-semibold;
+  }
+  input:not([type="checkbox"]),
+  select,
+  textarea {
+    @apply w-full min-w-0 rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-base font-normal text-navy;
+  }
+  input[type="checkbox"] {
+    @apply size-4 accent-brand;
+  }
+  button {
+    @apply min-h-11 cursor-pointer rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-800;
+  }
+  :focus-visible {
+    outline: 3px solid #155eef;
+    outline-offset: 3px;
+  }
+  th {
+    @apply whitespace-nowrap px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600;
+  }
+  td {
+    @apply border-t border-slate-200 px-4 py-4 text-sm;
+  }
+  pre {
+    @apply max-h-96 overflow-auto whitespace-pre-wrap break-words rounded-lg bg-slate-100 p-4 text-sm leading-relaxed;
+  }
+}
+@layer components {
+  .panel {
+    @apply scroll-mt-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-8;
+  }
+  .intro {
+    @apply mt-2 max-w-3xl text-sm leading-6 text-slate-600;
+  }
+  .subtle-button {
+    @apply border border-slate-300 bg-white text-navy hover:bg-slate-100;
+  }
+  .metric {
+    @apply border-l-2 border-brand pl-4;
+  }
+  .nav-link {
+    @apply rounded-lg px-3 py-3 text-sm font-semibold text-slate-600 hover:bg-blue-50 hover:text-brand;
+  }
+}
