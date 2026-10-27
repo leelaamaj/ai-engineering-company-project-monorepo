@@ -2,3 +2,5 @@ node_modules/
 uis/website/test-results/
 uis/website/playwright-report/
 .DS_Store
+uis/operations-demo/dist/
+.playwright-cli/

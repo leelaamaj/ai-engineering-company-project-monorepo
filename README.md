@@ -89,7 +89,7 @@ This monorepo develops **TrackFlow** across many milestones and projects. Each t
 - [company-choice.md](./company-choice.md) records the motivation, department interests, automation challenge, and proposed AI agent.
 - The public website is implemented in `uis/website/`: English and Spanish landing pages, a validated business inquiry form, and local Lighthouse evidence. The broader applications and automations described above remain planned.
 - Run the website from this repository root with `npx http-server uis/website -p 3000 -a 0.0.0.0`. Open port 3000. See [website instructions](./uis/website/README.md) for build, test, and Codespaces review steps.
-- Shared package metadata exists in `packages/shared/package.json` (`@repo/shared-types`), but no workspace runner or application test command is configured at the root.
+- Milestone 2 utilities live in `packages/shared` (`@repo/shared-types`), with an interactive Operations Lab in `uis/operations-demo`. From the root, run `npm ci`, `npm run typecheck`, `npm test`, and `npm run dev`. See [the milestone guide](packages/shared/README.md) for the function checklist and edge-case conventions.
 - There is no root `AGENTS.md` or `docker-compose.yml` yet. Component-specific setup and checks should be documented as implementation is added.
 
 ---
