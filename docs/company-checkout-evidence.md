@@ -1,0 +1,3 @@
+# Checkout evidence
+
+2026-11-03: cloned feature/company-milestone successfully into /tmp/trackflow-milestone-check in the existing authenticated GitHub Codespace. Python asserted BRIEFING.md bytes exactly equal the current official English source and required company-choice sections exist. Assertions completed and the local evidence commit succeeded. The monorepo devcontainer was not rebuilt; the documented clone alternative was used. Codespaces token cannot push to this other repository (HTTP 403), so evidence is preserved through the authorized GitHub connector instead. No credentials or access permissions were changed.
